@@ -5,6 +5,7 @@ import Hero from './components/Hero';
 import FlowerGallery from './components/FlowerGallery';
 import Footer from './components/Footer';
 import './App.css';
+import './mobile-optimizations.css';
 
 function App() {
   return (

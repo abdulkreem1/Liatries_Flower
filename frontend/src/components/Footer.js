@@ -12,7 +12,7 @@ const Footer = () => {
               <span className="logo-text">LIATRIES</span>
             </div>
             <p className="footer-description">
-              نقدم لك أجمل الورود الطبيعية لجميع مناسباتك الخاصة
+              نقدم لك أجمل الورود الطبيعية والصناعية لجميع مناسباتك الخاصة
             </p>
           </div>
           
@@ -29,15 +29,15 @@ const Footer = () => {
           <div className="footer-section">
             <h3 className="footer-title">تواصل معنا</h3>
             <ul className="footer-contact">
-              <li>📞 +963 XXX XXX XXX</li>
+              <li>📞 +963 994 994 005</li>
               <li>📧 info@liatries.com</li>
-              <li>📍 دمشق، سوريا</li>
+              <li>📍 دمشق المزة</li>
             </ul>
           </div>
         </div>
         
         <div className="footer-bottom">
-          <p>&copy; 2024 LIATRIES. جميع الحقوق محفوظة</p>
+          <p>&copy; 2026 LIATRIES. جميع الحقوق محفوظة</p>
         </div>
       </div>
     </footer>

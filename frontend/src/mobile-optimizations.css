@@ -1,0 +1,133 @@
+/* Mobile-first optimizations */
+
+/* Prevent text size adjustment on orientation change */
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+/* Improve tap targets */
+@media (max-width: 768px) {
+  /* Minimum touch target size */
+  button, 
+  a, 
+  input[type="button"], 
+  input[type="submit"], 
+  input[type="reset"] {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 8px 16px;
+  }
+  
+  /* Improve form inputs */
+  input, 
+  textarea, 
+  select {
+    font-size: 16px; /* Prevent zoom on iOS */
+    padding: 12px;
+    border-radius: 8px;
+  }
+  
+  /* Better spacing for mobile */
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  
+  /* Improve readability */
+  p, li {
+    line-height: 1.6;
+  }
+  
+  /* Better button spacing */
+  .hero-buttons {
+    gap: 16px;
+  }
+  
+  .hero-buttons button {
+    padding: 12px 24px;
+    font-size: 16px;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  
+  /* Smaller text for very small screens */
+  h1 { font-size: 1.8rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.3rem; }
+  
+  /* Better button sizing */
+  button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+/* Landscape orientation on mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero {
+    min-height: 100vh;
+    padding-top: 60px;
+  }
+  
+  .hero-content {
+    gap: 2rem;
+  }
+  
+  .hero-brand {
+    font-size: 2.5rem;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .flower-image {
+    image-rendering: -webkit-optimize-contrast;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #f8fafc;
+    --text-light: #cbd5e1;
+    --bg-light: #1e293b;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus improvements for accessibility */
+button:focus,
+a:focus,
+input:focus,
+textarea:focus {
+  outline: 2px solid var(--primary-solid);
+  outline-offset: 2px;
+}
+
+/* Better scrollbar on mobile */
+@media (max-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+  }
+}

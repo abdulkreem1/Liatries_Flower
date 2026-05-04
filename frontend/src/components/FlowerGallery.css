@@ -328,25 +328,94 @@
     padding: 4rem 0;
   }
   
+  .section-header {
+    margin-bottom: 3rem;
+  }
+  
   .flowers-grid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 2rem;
   }
   
   .section-title {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .section-subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .section-subtitle::before,
+  .section-subtitle::after {
+    display: none;
+  }
+  
+  .flower-card {
+    margin: 0;
+    border-radius: 20px;
+  }
+  
+  .flower-image-wrapper {
+    height: 300px;
+  }
+  
+  .flower-info {
+    padding: 1.5rem;
+  }
+  
+  .flower-name {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .flower-description {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .flower-price {
+    font-size: 1.5rem;
+  }
+  
+  .flower-status {
+    padding: 0.5rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  
+  .order-btn {
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-section {
+    padding: 3rem 0;
+  }
+  
+  .section-header {
+    margin-bottom: 2.5rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
   }
   
   .section-subtitle {
     font-size: 1.1rem;
   }
   
+  .flowers-grid {
+    gap: 1.5rem;
+  }
+  
   .flower-card {
-    margin: 0 10px;
+    border-radius: 16px;
   }
   
   .flower-image-wrapper {
-    height: 280px;
+    height: 250px;
   }
   
   .flower-info {
@@ -357,32 +426,59 @@
     font-size: 1.3rem;
   }
   
-  .flower-price {
-    font-size: 1.3rem;
-  }
-  
-  .order-btn {
-    padding: 0.8rem 2rem;
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .container {
-    padding: 0 15px;
-  }
-  
-  .section-title {
-    font-size: 1.8rem;
-  }
-  
-  .flower-card {
-    margin: 0 5px;
+  .flower-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
   }
   
   .flower-footer {
     flex-direction: column;
-    gap: 0.8rem;
-    align-items: flex-start;
+    gap: 1rem;
+    align-items: stretch;
+    text-align: center;
+  }
+  
+  .flower-price {
+    font-size: 1.4rem;
+    order: 2;
+  }
+  
+  .flower-status {
+    order: 1;
+    align-self: center;
+    padding: 0.4rem 1rem;
+    font-size: 0.85rem;
+  }
+  
+  .order-btn {
+    padding: 0.9rem 2rem;
+    font-size: 1rem;
+    width: 100%;
+  }
+}
+
+@media (max-width: 360px) {
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .flower-image-wrapper {
+    height: 220px;
+  }
+  
+  .flower-info {
+    padding: 1rem;
+  }
+  
+  .flower-name {
+    font-size: 1.2rem;
+  }
+  
+  .flower-description {
+    font-size: 0.9rem;
+  }
+  
+  .flower-price {
+    font-size: 1.3rem;
   }
 }
