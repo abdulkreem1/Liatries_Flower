@@ -16,6 +16,7 @@ build/
 db.sqlite3
 media/
 staticfiles/
+.env
 
 # React
 node_modules/
@@ -34,3 +35,6 @@ build/
 # OS
 .DS_Store
 Thumbs.db
+
+# Docker
+postgres_data/

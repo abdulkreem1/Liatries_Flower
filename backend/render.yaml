@@ -1,0 +1,26 @@
+databases:
+  - name: liatries_db
+    databaseName: liatries_db
+    user: liatries_user
+    plan: free
+
+services:
+  - type: web
+    name: liatries-backend
+    runtime: python
+    plan: free
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn liatries.wsgi:application"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: DATABASE_URL
+        fromDatabase:
+          name: liatries_db
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: False
+      - key: ALLOWED_HOSTS
+        sync: false

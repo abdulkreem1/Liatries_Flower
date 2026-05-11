@@ -17,9 +17,11 @@ services:
   web:
     build: ./backend
     container_name: liatries_backend
-    command: python manage.py runserver 0.0.0.0:8000
+    command: sh -c "python manage.py migrate && gunicorn --bind 0.0.0.0:8000 --workers 3 --timeout 120 liatries.wsgi:application"
     volumes:
       - ./backend:/app
+      - static_volume:/app/staticfiles
+      - media_volume:/app/media
     ports:
       - "8000:8000"
     depends_on:
@@ -33,3 +35,5 @@ services:
 
 volumes:
   postgres_data:
+  static_volume:
+  media_volume:

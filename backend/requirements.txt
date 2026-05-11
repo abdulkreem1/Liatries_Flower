@@ -1,6 +1,25 @@
+# Django Core
 Django==4.2.7
 djangorestframework==3.14.0
-django-cors-headers==4.3.1
-Pillow==10.4.0
-python-decouple==3.8
+
+# Database
 psycopg2-binary==2.9.7
+dj-database-url==2.1.0
+
+# CORS
+django-cors-headers==4.3.1
+
+# Image Processing
+Pillow==10.4.0
+
+# Environment Variables
+python-decouple==3.8
+
+# Production Server
+gunicorn==21.2.0
+
+# Security & Performance
+whitenoise==6.6.0
+
+# Monitoring (optional)
+django-extensions==3.2.3
