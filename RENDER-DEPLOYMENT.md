@@ -15,6 +15,21 @@ git push origin main
 
 ### 3. إنشاء PostgreSQL Database
 
+#### خيار 1: Supabase (موصى به) ⭐
+
+1. اذهب إلى [supabase.com](https://supabase.com)
+2. سجل دخول وأنشئ مشروع جديد
+3. انسخ **Connection String** (Port 6543 للـ Pooling)
+4. راجع [SUPABASE-SETUP.md](SUPABASE-SETUP.md) للتفاصيل الكاملة
+
+**المميزات:**
+- ✅ 500MB مجاني
+- ✅ لا ينام أبداً
+- ✅ Backups تلقائية
+- ✅ واجهة إدارة ممتازة
+
+#### خيار 2: Render PostgreSQL
+
 1. من لوحة تحكم Render، اضغط **New +**
 2. اختر **PostgreSQL**
 3. املأ المعلومات:
@@ -45,6 +60,17 @@ git push origin main
 
 في صفحة Web Service، اذهب إلى **Environment** وأضف:
 
+#### إذا استخدمت Supabase:
+```
+SECRET_KEY=<اضغط Generate لإنشاء مفتاح عشوائي>
+DEBUG=False
+DATABASE_URL=<الصق Connection String من Supabase (Port 6543)>
+ALLOWED_HOSTS=<your-app-name>.onrender.com
+CORS_ALLOWED_ORIGINS=https://<your-frontend-url>.com
+PYTHON_VERSION=3.11.0
+```
+
+#### إذا استخدمت Render PostgreSQL:
 ```
 SECRET_KEY=<اضغط Generate لإنشاء مفتاح عشوائي>
 DEBUG=False

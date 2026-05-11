@@ -10,10 +10,16 @@
 
 ### هل يمكن استخدام قاعدة بيانات أخرى؟
 نعم، Django يدعم:
-- PostgreSQL (موصى به للإنتاج)
-- MySQL/MariaDB
-- SQLite (للتطوير فقط)
-- Oracle
+- **PostgreSQL** (موصى به للإنتاج)
+  - Supabase (500MB مجاني، لا ينام) ⭐
+  - Render PostgreSQL (1GB مجاني)
+  - AWS RDS
+  - Google Cloud SQL
+- **MySQL/MariaDB**
+- **SQLite** (للتطوير فقط)
+- **Oracle**
+
+راجع [SUPABASE-SETUP.md](SUPABASE-SETUP.md) لإعداد Supabase.
 
 ### كيف أحفظ الصور المرفوعة؟
 Render Free Plan لا يحفظ الملفات بشكل دائم. الحلول:
@@ -69,6 +75,26 @@ docker-compose up -d db
 ### كم يستغرق النشر؟
 - أول نشر: 5-10 دقائق
 - التحديثات: 3-5 دقائق
+
+### أيهما أفضل: Supabase أم Render PostgreSQL؟
+
+**Supabase (موصى به):**
+- ✅ 500MB مجاني
+- ✅ لا ينام أبداً
+- ✅ Backups تلقائية يومياً
+- ✅ واجهة إدارة ممتازة
+- ✅ Connection Pooling مدمج
+- ✅ API جاهز
+
+**Render PostgreSQL:**
+- ✅ 1GB مجاني
+- ✅ لا ينام
+- ⚠️ Backups يدوية فقط
+- ⚠️ واجهة بسيطة
+
+**الخلاصة:** استخدم Supabase إلا إذا احتجت أكثر من 500MB.
+
+راجع [SUPABASE-SETUP.md](SUPABASE-SETUP.md) للتفاصيل.
 
 ### التطبيق بطيء جداً!
 هذا طبيعي في Free Plan:

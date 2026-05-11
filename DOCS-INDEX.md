@@ -48,6 +48,7 @@
 
 | الملف | الوصف | متى تستخدمه |
 |------|-------|-------------|
+| [SUPABASE-SETUP.md](SUPABASE-SETUP.md) | إعداد Supabase Database | للحصول على قاعدة بيانات مجانية |
 | [CLOUDINARY-SETUP.md](backend/CLOUDINARY-SETUP.md) | إعداد Cloudinary | عند الحاجة لحفظ الصور |
 
 ### المرجع والأدوات
@@ -73,9 +74,12 @@
 
 ### "أريد نشر المشروع على Render"
 1. اقرأ [DEPLOYMENT-SUMMARY.md](DEPLOYMENT-SUMMARY.md) - للفهم الشامل
-2. راجع [RENDER-CHECKLIST.md](RENDER-CHECKLIST.md) - للتحقق من الجاهزية
-3. شغل `PRE-DEPLOY-CHECK.bat` (Windows) أو `bash PRE-DEPLOY-CHECK.sh` (Linux/Mac)
-4. اتبع [RENDER-DEPLOYMENT.md](RENDER-DEPLOYMENT.md) خطوة بخطوة
+2. أنشئ قاعدة بيانات:
+   - **Supabase** (موصى به): اتبع [SUPABASE-SETUP.md](SUPABASE-SETUP.md)
+   - **Render PostgreSQL**: اتبع [RENDER-DEPLOYMENT.md](RENDER-DEPLOYMENT.md)
+3. راجع [RENDER-CHECKLIST.md](RENDER-CHECKLIST.md) - للتحقق من الجاهزية
+4. شغل `PRE-DEPLOY-CHECK.bat` (Windows) أو `bash PRE-DEPLOY-CHECK.sh` (Linux/Mac)
+5. اتبع [RENDER-DEPLOYMENT.md](RENDER-DEPLOYMENT.md) خطوة بخطوة
 
 ### "أريد إعداد Cloudinary للصور"
 1. اقرأ [CLOUDINARY-SETUP.md](backend/CLOUDINARY-SETUP.md)

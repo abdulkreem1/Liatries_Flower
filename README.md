@@ -70,6 +70,10 @@ docker-compose exec web python manage.py createsuperuser
 - ✅ `backend/render.yaml` - إعدادات Render
 - ✅ `backend/.env.example` - نموذج المتغيرات
 
+### خيارات قاعدة البيانات:
+- 🌟 **Supabase** (موصى به) - راجع [SUPABASE-SETUP.md](SUPABASE-SETUP.md)
+- 🔧 **Render PostgreSQL** - راجع [RENDER-DEPLOYMENT.md](RENDER-DEPLOYMENT.md)
+
 ### خطوات النشر:
 1. راجع `RENDER-CHECKLIST.md` للتأكد من الجاهزية
 2. اتبع التعليمات في `RENDER-DEPLOYMENT.md`
@@ -78,11 +82,13 @@ docker-compose exec web python manage.py createsuperuser
 ## الوثائق
 
 📚 **[دليل الوثائق الكامل](DOCS-INDEX.md)** - ابدأ هنا للوصول لجميع الأدلة  
-📊 **[حالة المشروع](PROJECT-STATUS.md)** - ملخص الجاهزية والميزات
+📊 **[حالة المشروع](PROJECT-STATUS.md)** - ملخص الجاهزية والميزات  
+⚡ **[دليل النشر السريع](QUICK-DEPLOY-GUIDE.md)** - انشر في 10 دقائق!
 
 ### أدلة سريعة
 - 📖 [دليل التشغيل السريع](backend/QUICK-START.md) - للتطوير المحلي
 - 🚀 [دليل النشر على Render](RENDER-DEPLOYMENT.md) - خطوة بخطوة
+- 🗄️ [إعداد Supabase](SUPABASE-SETUP.md) - قاعدة بيانات مجانية
 - ✅ [Checklist قبل النشر](RENDER-CHECKLIST.md) - تحقق من الجاهزية
 - 🐳 [دليل Docker](README-Docker.md) - استخدام Docker
 - ☁️ [إعداد Cloudinary](backend/CLOUDINARY-SETUP.md) - حفظ الصور

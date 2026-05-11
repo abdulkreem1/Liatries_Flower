@@ -27,6 +27,8 @@
 
 ### Database
 - ✅ PostgreSQL (Production)
+  - ✅ Supabase Support (موصى به)
+  - ✅ Render PostgreSQL Support
 - ✅ SQLite (Development)
 - ✅ Migrations Ready
 - ✅ Connection Pooling
@@ -70,6 +72,7 @@ backend/
 ├── DOCS-INDEX.md                ✅ Documentation index
 ├── DEPLOYMENT-SUMMARY.md        ✅ Deployment summary
 ├── RENDER-DEPLOYMENT.md         ✅ Render guide
+├── SUPABASE-SETUP.md            ✅ Supabase guide
 ├── RENDER-CHECKLIST.md          ✅ Deployment checklist
 ├── README-Docker.md             ✅ Docker guide
 ├── QUICK-START.md               ✅ Quick start
