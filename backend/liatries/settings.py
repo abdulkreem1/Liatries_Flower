@@ -60,14 +60,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'liatries.wsgi.application'
 
+
+
+# هذا الكود سيجبر Django على البحث عن DATABASE_URL فقط
 DATABASES = {
     'default': dj_database_url.config(
-        # سيقوم dj_database_url بقراءة متغير DATABASE_URL تلقائياً من Railway
-        default=config('DATABASE_URL'), 
-        conn_max_age=600,
-        conn_health_checks=True,
+        default=os.environ.get('DATABASE_URL')
     )
 }
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
