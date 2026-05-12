@@ -62,7 +62,8 @@ WSGI_APPLICATION = 'liatries.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default=config('DATABASE_URL', default=f'postgresql://{config("DB_USER", default="liatries_user")}:{config("DB_PASSWORD", default="liatries_password")}@{config("DB_HOST", default="localhost")}:{config("DB_PORT", default="5432")}/{config("DB_NAME", default="liatries_db")}'),
+        # سيقوم dj_database_url بقراءة متغير DATABASE_URL تلقائياً من Railway
+        default=config('DATABASE_URL'), 
         conn_max_age=600,
         conn_health_checks=True,
     )
