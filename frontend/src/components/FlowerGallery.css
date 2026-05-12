@@ -2,10 +2,7 @@
   position: relative;
   overflow: hidden;
   padding: var(--space-2xl) 0;
-  background:
-    radial-gradient(circle at 18% 14%, rgba(140, 204, 241, 0.12), transparent 28rem),
-    radial-gradient(circle at 86% 68%, rgba(215, 173, 95, 0.14), transparent 32rem),
-    linear-gradient(180deg, rgba(3, 4, 7, 0.92), rgba(11, 13, 20, 0.98));
+  background: var(--section-scene);
 }
 
 .gallery-section::before {
@@ -14,8 +11,8 @@
   inset: 0;
   pointer-events: none;
   background:
-    linear-gradient(110deg, transparent 0 44%, rgba(248, 240, 223, 0.035) 44% 45%, transparent 45% 100%),
-    radial-gradient(circle at center, transparent 44%, rgba(0, 0, 0, 0.42));
+    linear-gradient(110deg, transparent 0 44%, rgba(95, 59, 22, 0.035) 44% 45%, transparent 45% 100%),
+    radial-gradient(circle at center, transparent 44%, rgba(91, 60, 28, 0.12));
 }
 
 .section-header {
@@ -51,6 +48,87 @@
   color: var(--text-light);
   font-size: clamp(1rem, 0.88rem + 0.7vw, 1.45rem);
   line-height: 1.8;
+}
+
+.gallery-controls {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(18rem, 0.95fr) minmax(0, 1.35fr);
+  align-items: center;
+  gap: clamp(1rem, 2vw, 2rem);
+  margin-bottom: var(--space-xl);
+  padding: clamp(1rem, 2vw, 1.4rem);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--border-radius-large);
+  background: var(--bg-panel);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(18px);
+  animation: fadeInUp 1s var(--ease-cinematic) 0.15s both;
+}
+
+.search-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 58px;
+  padding: 0 1rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 999px;
+  background: var(--bg-panel-strong);
+  transition: border-color 0.55s var(--ease-cinematic), box-shadow 0.55s var(--ease-cinematic);
+}
+
+.search-field:focus-within {
+  border-color: var(--border-gold);
+  box-shadow: var(--shadow-glow);
+}
+
+.search-field span {
+  color: var(--primary-solid);
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.search-field input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.search-field input::placeholder {
+  color: var(--text-muted);
+}
+
+.category-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 0.7rem;
+}
+
+.filter-chip {
+  border: 1px solid var(--border-subtle);
+  border-radius: 999px;
+  background: var(--bg-panel-strong);
+  color: var(--text-light);
+  cursor: pointer;
+  font-weight: 800;
+  padding: 0.78rem 1.15rem;
+  transition: transform 0.55s var(--ease-cinematic), border-color 0.55s var(--ease-cinematic), color 0.55s var(--ease-cinematic), background 0.55s var(--ease-cinematic), box-shadow 0.55s var(--ease-cinematic);
+}
+
+.filter-chip:hover,
+.filter-chip.active {
+  transform: translateY(-3px);
+  border-color: var(--border-gold);
+  background: var(--primary);
+  color: var(--text-inverse);
+  box-shadow: var(--shadow-glow);
 }
 
 .flowers-grid {
@@ -110,7 +188,7 @@
   overflow: hidden;
   background:
     radial-gradient(circle at center, rgba(248, 240, 223, 0.12), transparent 50%),
-    linear-gradient(150deg, rgba(3, 4, 7, 0.9), rgba(20, 24, 34, 0.92));
+    linear-gradient(150deg, var(--bg-panel-strong), var(--bg-charcoal));
 }
 
 .flower-image-wrapper::after {
@@ -254,6 +332,9 @@
 }
 
 @media (max-width: 720px) {
+  .gallery-controls { grid-template-columns: 1fr; }
+  .category-filters { justify-content: stretch; }
+  .filter-chip { flex: 1 1 auto; }
   .flowers-grid { grid-template-columns: 1fr; }
   .flower-card,
   .flower-card:nth-child(3n + 2) { grid-column: auto; transform: none; }

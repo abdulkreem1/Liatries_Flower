@@ -4,10 +4,7 @@
   margin-top: 0;
   padding: var(--space-xl) 0 var(--space-lg);
   border-top: 1px solid var(--border-subtle);
-  background:
-    radial-gradient(circle at 16% 18%, rgba(140, 204, 241, 0.12), transparent 24rem),
-    radial-gradient(circle at 88% 0%, rgba(215, 173, 95, 0.16), transparent 28rem),
-    linear-gradient(180deg, rgba(3, 4, 7, 0.98), #020306 100%);
+  background: var(--footer-scene);
   color: var(--text);
 }
 

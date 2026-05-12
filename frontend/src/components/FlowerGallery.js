@@ -6,6 +6,17 @@ import './FlowerGallery.css';
 const FlowerGallery = () => {
   const [flowers, setFlowers] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [activeCategory, setActiveCategory] = useState('all');
+
+  const categories = [
+    { id: 'all', label: 'الكل', keywords: [] },
+    { id: 'vases', label: 'المزهريات', keywords: ['vase', 'vases', 'مزهرية', 'مزهريات'] },
+    { id: 'thorns', label: 'الأشواك', keywords: ['thorn', 'thorns', 'شوكة', 'أشواك', 'اشواك'] },
+    { id: 'trees', label: 'الأشجار', keywords: ['tree', 'trees', 'شجرة', 'أشجار', 'اشجار'] },
+    { id: 'flowers', label: 'الورود', keywords: ['flower', 'flowers', 'rose', 'roses', 'ورد', 'ورود', 'زهرة', 'زهور'] },
+    { id: 'bags', label: 'الأكياس والحقائب', keywords: ['bag', 'bags', 'كيس', 'أكياس', 'اكياس', 'حقيبة', 'حقائب'] }
+  ];
 
   useEffect(() => {
     fetchFlowers();
@@ -29,6 +40,23 @@ const FlowerGallery = () => {
     alert(`تم إضافة ${flowerName} إلى السلة! 🌹`);
   };
 
+  const getSearchableText = (flower) => [
+    flower.name,
+    flower.description,
+    flower.category,
+    flower.type,
+    flower.tags
+  ].filter(Boolean).join(' ').toLowerCase();
+
+  const filteredFlowers = flowers.filter((flower) => {
+    const searchableText = getSearchableText(flower);
+    const matchesSearch = searchableText.includes(searchTerm.trim().toLowerCase());
+    const selectedCategory = categories.find((category) => category.id === activeCategory);
+    const matchesCategory = activeCategory === 'all' || selectedCategory?.keywords.some((keyword) => searchableText.includes(keyword));
+
+    return matchesSearch && matchesCategory;
+  });
+
   if (loading) {
     return (
       <section className="gallery-section" id="flowers">
@@ -46,9 +74,36 @@ const FlowerGallery = () => {
           <h2 className="section-title">مجموعتنا المميزة</h2>
           <p className="section-subtitle">اختر من بين أجمل الورود الطبيعية المختارة بعناية</p>
         </div>
+
+        <div className="gallery-controls" aria-label="البحث وتصفية المنتجات">
+          <div className="search-field">
+            <span aria-hidden="true">⌕</span>
+            <input
+              type="search"
+              placeholder="ابحث عن وردة، مزهرية، شجرة، حقيبة..."
+              value={searchTerm}
+              onChange={(event) => setSearchTerm(event.target.value)}
+              aria-label="البحث في المجموعة"
+            />
+          </div>
+
+          <div className="category-filters" role="list" aria-label="تصفية حسب النوع">
+            {categories.map((category) => (
+              <button
+                key={category.id}
+                type="button"
+                className={`filter-chip ${activeCategory === category.id ? 'active' : ''}`}
+                onClick={() => setActiveCategory(category.id)}
+                aria-pressed={activeCategory === category.id}
+              >
+                {category.label}
+              </button>
+            ))}
+          </div>
+        </div>
         
         <div className="flowers-grid">
-          {flowers.length > 0 ? flowers.map((flower, index) => (
+          {filteredFlowers.length > 0 ? filteredFlowers.map((flower, index) => (
             <div key={flower.id} className="flower-card" style={{animationDelay: `${index * 0.1}s`}}>
               <div className="flower-image-wrapper">
                 <img 
@@ -78,8 +133,8 @@ const FlowerGallery = () => {
             </div>
           )) : (
             <div className="no-flowers">
-              <h3>لا توجد ورود متاحة حالياً</h3>
-              <p>يرجى المحاولة لاحقاً أو التواصل معنا</p>
+              <h3>{flowers.length > 0 ? 'لا توجد نتائج مطابقة' : 'لا توجد ورود متاحة حالياً'}</h3>
+              <p>{flowers.length > 0 ? 'جرّب تغيير البحث أو اختيار تصنيف آخر' : 'يرجى المحاولة لاحقاً أو التواصل معنا'}</p>
             </div>
           )}
         </div>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Header.css';
 
-const Header = () => {
+const Header = ({ theme, onToggleTheme }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -49,6 +49,14 @@ const Header = () => {
           </ul>
 
           <div className="nav-right">
+            <button 
+              className="theme-toggle" 
+              onClick={onToggleTheme}
+              aria-label={theme === 'light' ? 'تفعيل الوضع الداكن' : 'تفعيل الوضع الفاتح'}
+              type="button"
+            >
+              <span>{theme === 'light' ? '🌙' : '☀️'}</span>
+            </button>
             <button className="cta-button desktop-cta">اطلب الآن</button>
             <button 
               className={`mobile-menu-toggle ${mobileMenuOpen ? 'active' : ''}`}
