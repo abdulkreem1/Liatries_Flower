@@ -67,7 +67,7 @@ WSGI_APPLICATION = 'liatries.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(
         # هنا نخبره أن يقرأ من الاسم الذي اخترته أنت
-        default=config('DATABASE_URL1'), 
+        default=config('DATABASE_URL'), 
         conn_max_age=600,
         conn_health_checks=True,
     )
