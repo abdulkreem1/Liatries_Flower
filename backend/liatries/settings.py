@@ -104,12 +104,13 @@ CLOUDINARY_STORAGE = {
     'CLOUD_NAME': config('CLOUDINARY_CLOUD_NAME', default=''),
     'API_KEY': config('CLOUDINARY_API_KEY', default=''),
     'API_SECRET': config('CLOUDINARY_API_SECRET', default=''),
+    'SECURE': True,  # استخدام HTTPS
 }
 
 # Media Files - استخدام Cloudinary في Production
 if CLOUDINARY_STORAGE['CLOUD_NAME']:
     DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-    MEDIA_URL = '/media/'
+    # إزالة MEDIA_URL لأنو Cloudinary بيستخدم URL الخاص فيه
 else:
     # Local development
     MEDIA_URL = 'media/'
