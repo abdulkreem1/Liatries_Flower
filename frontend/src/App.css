@@ -2,27 +2,28 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  overflow-x: hidden;
+  overflow-x: clip;
+  background:
+    radial-gradient(circle at 10% 18%, rgba(140, 204, 241, 0.1), transparent 28rem),
+    radial-gradient(circle at 90% 2%, rgba(215, 173, 95, 0.16), transparent 30rem);
+}
+
+.App::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 20;
+  background: radial-gradient(ellipse at center, transparent 48%, rgba(0, 0, 0, 0.58) 100%);
+  mix-blend-mode: multiply;
 }
 
 main {
   flex: 1;
 }
 
-/* Prevent horizontal scroll on mobile */
-* {
+img,
+svg,
+video {
   max-width: 100%;
-}
-
-/* Improve touch targets on mobile */
-@media (max-width: 768px) {
-  button, a {
-    min-height: 44px;
-    min-width: 44px;
-  }
-  
-  /* Prevent zoom on input focus */
-  input, textarea, select {
-    font-size: 16px;
-  }
 }

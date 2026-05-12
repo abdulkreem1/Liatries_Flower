@@ -71,7 +71,7 @@ const FlowerGallery = () => {
                   <p className="flower-description">{flower.description}</p>
                 )}
                 <div className="flower-footer">
-                  <span className="flower-price">{flower.price} ل.س</span>
+                  <span className="flower-price">{flower.price} $ </span>
                   <span className="flower-status">متوفر الآن</span>
                 </div>
               </div>
