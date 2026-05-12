@@ -103,10 +103,20 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # CORS Settings
-CORS_ALLOWED_ORIGINS = config(
-    'CORS_ALLOWED_ORIGINS',
-    default='https://fabulous-haupia-ad58f5.netlify.app,http://localhost:3000,http://127.0.0.1:3000'
-).split(',')
+# إضافة Netlify URL مباشرة
+CORS_ALLOWED_ORIGINS = [
+    'https://fabulous-haupia-ad58f5.netlify.app',
+    'http://localhost:3000',
+    'http://127.0.0.1:3000',
+]
+
+# قراءة من Environment Variable (إذا موجود)
+cors_env = config('CORS_ALLOWED_ORIGINS', default='')
+if cors_env:
+    for origin in cors_env.split(','):
+        origin = origin.strip()
+        if origin and origin not in CORS_ALLOWED_ORIGINS:
+            CORS_ALLOWED_ORIGINS.append(origin)
 
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_ALL_ORIGINS = False
