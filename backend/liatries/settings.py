@@ -73,6 +73,11 @@ DATABASES = {
     )
 }
 
+# أضف رابط موقعك هنا
+CSRF_TRUSTED_ORIGINS = [
+    'https://liatriesflower-production.up.railway.app',
+    'https://*.railway.app' # هذا السطر يضمن قبول أي دومين فرعي من رايلواي
+]
 
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
