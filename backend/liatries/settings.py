@@ -105,7 +105,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # CORS Settings
 CORS_ALLOWED_ORIGINS = config(
     'CORS_ALLOWED_ORIGINS',
-    default='http://localhost:3000,http://127.0.0.1:3000'
+    default='https://fabulous-haupia-ad58f5.netlify.app/'
 ).split(',')
 
 CORS_ALLOW_CREDENTIALS = True
