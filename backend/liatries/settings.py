@@ -64,14 +64,14 @@ WSGI_APPLICATION = 'liatries.wsgi.application'
 
 
 
+DATABASE_URL = config('DATABASE_URL')
+
 DATABASES = {
-    'default': dj_database_url.config(
-        # هنا نخبره أن يقرأ من الاسم الذي اخترته أنت
-        default=config('DATABASE_URL'), 
-        conn_max_age=600,
-        conn_health_checks=True,
-    )
+    'default': dj_database_url.parse(DATABASE_URL)
 }
+
+# إضافة الإعدادات الإضافية لضمان استقرار الاتصال
+DATABASES['default']['CONN_MAX_AGE'] = 600
 
 # أضف رابط موقعك هنا
 CSRF_TRUSTED_ORIGINS = [
