@@ -62,10 +62,14 @@ WSGI_APPLICATION = 'liatries.wsgi.application'
 
 
 
-# هذا الكود سيجبر Django على البحث عن DATABASE_URL فقط
+
+
 DATABASES = {
     'default': dj_database_url.config(
-        default=os.environ.get('DATABASE_URL')
+        # هنا نخبره أن يقرأ من الاسم الذي اخترته أنت
+        default=config('DATABASE_URL1'), 
+        conn_max_age=600,
+        conn_health_checks=True,
     )
 }
 
